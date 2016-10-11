@@ -106,8 +106,12 @@ function Facet(tree, definition, args) {
 
   // Data solving
   this.get = function() {
-    if (solved)
-      return facetData;
+    if (process.env.NODE_ENV != "test") {
+      if (solved)
+        return facetData;
+    }
+
+    
 
     // Solving
     var data = {},
